@@ -1,4 +1,5 @@
-import { copyFile, lstat, mkdir, readdir, realpath, rm } from 'node:fs/promises';
+import { copyFile, lstat, mkdir, readdir, readFile, realpath, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -53,6 +54,22 @@ async function build() {
     await mkdir(path.dirname(target), { recursive: true });
     await copyFile(path.resolve(root, file.relative), target);
   }
+  // A release key prevents browsers from mixing cached modules and styles.
+  const digest = createHash('sha256');
+  for (const file of files) {
+    digest.update(file.relative.split(path.sep).join('/'));
+    digest.update(await readFile(path.resolve(root, file.relative)));
+  }
+  const version = digest.digest('hex').slice(0, 12);
+  for (const file of files.filter(file => file.relative.endsWith('.js'))) {
+    const target = path.resolve(destination, file.relative);
+    const source = await readFile(target, 'utf8');
+    const versioned = source.replace(/((?:from\s*|import\s*)['"])(\.{1,2}\/[^'"]+\.js)(['"])/g, `$1$2?v=${version}$3`);
+    await writeFile(target, versioned);
+  }
+  const htmlPath = path.join(destination, 'index.html');
+  const html = await readFile(htmlPath, 'utf8');
+  await writeFile(htmlPath, html.replace(/((?:href|src)=")(\.\/[^"?]+\.(?:css|js))(")/g, `$1$2?v=${version}$3`));
   const megabytes = files.reduce((sum, file) => sum + file.bytes, 0) / 1024 / 1024;
   console.log(`Built ${files.length} files (${megabytes.toFixed(2)} MB) in dist/.`);
 }
