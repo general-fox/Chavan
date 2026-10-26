@@ -28,6 +28,6 @@ npm run build
 
 В настройках репозитория выберите **Settings → Pages → Build and deployment → Source → GitHub Actions**. Workflow [pages.yml](.github/workflows/pages.yml) проверяет проект, собирает `dist/` и публикует его при отправке изменений в `main`. Его также можно запустить вручную через **Actions → Deploy GitHub Pages → Run workflow**.
 
-Ожидаемый адрес после успешной публикации: [general-fox.github.io/Chavan/](https://general-fox.github.io/Chavan/).
+Опубликованная демонстрация: [general-fox.github.io/Chavan/](https://general-fox.github.io/Chavan/).
 
-Подробнее: [публикация и подключение реальных заказов](docs/DEPLOYMENT.md), [UX-аудит исходного сайта](docs/UX-AUDIT.md).
+Подробнее: [публикация и подключение реальных заказов](docs/DEPLOYMENT.md), [UX-аудит исходного сайта](docs/UX-AUDIT.md), [переработка навигации и дизайна](docs/UX-REVISION.md), [проверенные акции](docs/PROMOTIONS.md), [результаты проверки](docs/QA.md).

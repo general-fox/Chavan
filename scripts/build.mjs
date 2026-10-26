@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const root = await realpath(fileURLToPath(new URL('..', import.meta.url)));
 const destination = path.resolve(root, 'dist');
 // Publish only runtime files. The source audit and imported response stay private.
-const entries = ['index.html', 'styles.css', 'app.js', 'data/catalog.js', 'lib', 'assets', '.nojekyll'];
+const entries = ['index.html', 'styles.css', 'app.js', 'data/catalog.js', 'data/promotions.js', 'lib', 'assets', '.nojekyll'];
 
 function isInside(parent, candidate) {
   const relative = path.relative(parent, candidate);
