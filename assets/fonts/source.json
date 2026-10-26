@@ -1,0 +1,27 @@
+{
+  "cssUrl": "https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap",
+  "fontFamily": "Manrope",
+  "weights": "400 800",
+  "files": [
+    {
+      "file": "assets/fonts/manrope-cyrillic-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggqxSuXd.woff2",
+      "bytes": 2552
+    },
+    {
+      "file": "assets/fonts/manrope-cyrillic.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggOxSuXd.woff2",
+      "bytes": 14500
+    },
+    {
+      "file": "assets/fonts/manrope-latin-ext.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggmxSuXd.woff2",
+      "bytes": 15120
+    },
+    {
+      "file": "assets/fonts/manrope-latin.woff2",
+      "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSg.woff2",
+      "bytes": 24836
+    }
+  ]
+}

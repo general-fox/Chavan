@@ -1,0 +1,1175 @@
+{
+  "origin": "https://chavan-chudu.ru/",
+  "importedAt": "2026-10-26T11:26:15+00:00",
+  "catalogSource": "Public homepage Next.js hydration data: generalMenu",
+  "categories": 14,
+  "products": 143,
+  "availableProducts": 143,
+  "discountedProducts": 4,
+  "productsWithDescription": 67,
+  "productsWithModifiers": 58,
+  "uniqueModifierGroups": 5,
+  "currency": "RUB",
+  "weightUnit": "g",
+  "nutritionBasis": "per 100 g, as labelled in the original product modal",
+  "imagesDownloaded": 143,
+  "logo": {
+    "url": "https://api.monobox.app/storage/images/company35/08dab83310faf4196c130f357d70cab7.svg",
+    "file": "assets/original-logo.svg"
+  },
+  "notes": [
+    "All 14 categories and all 143 unique products from generalMenu are retained in source order.",
+    "Prices, current discounts, weights, availability, descriptions, and nutrition values are copied from the source snapshot.",
+    "Product titles are normalized to sentence case. Empty source descriptions remain empty.",
+    "All product photos are unmodified WebP files from the public source, served locally. Original dimensions are recorded per asset.",
+    "Source modifier choices, limits, additional prices, and weights are preserved. Internal group labels are simplified for display.",
+    "sourceUrl points to the observed original category anchor; the source opens products in a modal and has no product page route.",
+    "Availability and prices are a snapshot, not a live inventory feed."
+  ],
+  "assets": [
+    {
+      "productId": "11494",
+      "url": "https://api.monobox.app/cropped-image/500x500/4649c3efd1a5d1feea0e83c49a92e721.webp",
+      "file": "assets/menu/11494.webp",
+      "sha256": "c853c83f15ddd708a0e843d1a7078c0d483fce521d5412609eaaed2688124024",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11495",
+      "url": "https://api.monobox.app/cropped-image/500x500/658ed11028fd5434fded319ced94880b.webp",
+      "file": "assets/menu/11495.webp",
+      "sha256": "db565b0a1c047844085a9577ae3d2c18bfe8b147efd390d668969bf241300405",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11496",
+      "url": "https://api.monobox.app/cropped-image/500x500/36c8c0cc3f762df805af6da9044c4bfe.webp",
+      "file": "assets/menu/11496.webp",
+      "sha256": "278c0dae6e79474cc6b93379a986a6c36274419e7ebba29bdcfb481552fba2d4",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11497",
+      "url": "https://api.monobox.app/cropped-image/500x500/0f0ac01ef33115fd45947bab525cdf28.webp",
+      "file": "assets/menu/11497.webp",
+      "sha256": "cf18950a6a68012849e4032a06dfb966ed3a39db8d268a7bfa288df7c0258c67",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11498",
+      "url": "https://api.monobox.app/cropped-image/500x500/3e29519768590317cd0ba4ab7b3bbcfc.webp",
+      "file": "assets/menu/11498.webp",
+      "sha256": "a0cc874ad2630e5e23c88d32f761c1abe0c90f39a11f022a96f09945a2156e34",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11499",
+      "url": "https://api.monobox.app/cropped-image/500x500/f8977ad366ddf075092687ba9fea30d5.webp",
+      "file": "assets/menu/11499.webp",
+      "sha256": "f583e7456f3b4ab0ccf5eaeb0e82ad0809e2d9bbf216c5fb0921081fb6f7572c",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11500",
+      "url": "https://api.monobox.app/cropped-image/500x500/3c5869e29ba98384cd8e75d85df38162.webp",
+      "file": "assets/menu/11500.webp",
+      "sha256": "27b300277400deb66d2919204f1d2108269e67eab8f5c179246ce732795ec451",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11501",
+      "url": "https://api.monobox.app/cropped-image/500x500/87a2a0b46eb63a09d0bb3681b52a8206.webp",
+      "file": "assets/menu/11501.webp",
+      "sha256": "c556dea8041a8d681f5c66d9f17afd4ac5f31183e989cd56188cd69ac84be3bf",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11502",
+      "url": "https://api.monobox.app/cropped-image/500x500/e5cc1182f40adaaa56cdd2ba6a59fe52.webp",
+      "file": "assets/menu/11502.webp",
+      "sha256": "f62cd86208b79bd381a9247cefd831d87500e47e87b6cc42b334e137fa0cb386",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11503",
+      "url": "https://api.monobox.app/cropped-image/500x500/cc16a7f9427912da71f3f263fb359546.webp",
+      "file": "assets/menu/11503.webp",
+      "sha256": "4b50f23688b07f6ef566751a70506f9d7b72c8d9f513720acc91933055e381fd",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11504",
+      "url": "https://api.monobox.app/cropped-image/500x500/3a3fcf58d608a074f753575d5f0426f4.webp",
+      "file": "assets/menu/11504.webp",
+      "sha256": "208eebf3d2e44641caaa356ee938aed44376bb33fdaf3cbdf73523bfe142d943",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11505",
+      "url": "https://api.monobox.app/cropped-image/500x500/6c47d7fb3034e6f48031a1076f1baaa9.webp",
+      "file": "assets/menu/11505.webp",
+      "sha256": "bb109696311617c455a21fbd4c569ade693c50d12c85c8087196561e5ba77afa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11506",
+      "url": "https://api.monobox.app/cropped-image/500x500/8037619a7c6fbd1ceb862208e69507e7.webp",
+      "file": "assets/menu/11506.webp",
+      "sha256": "12095882dd5c968384a66e9cde5cd9e34fd6f8b2ed30b856484744c23889ddd2",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11507",
+      "url": "https://api.monobox.app/cropped-image/500x500/d0e447037bde9954bc121c38d09a38a7.webp",
+      "file": "assets/menu/11507.webp",
+      "sha256": "69ba0c8fe00edf21005015dcb7b324ff5ef65718cf385aa4476f12411c97b247",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11508",
+      "url": "https://api.monobox.app/cropped-image/500x500/b6ca8cc2651eb091d4dd9cff8ca83eef.webp",
+      "file": "assets/menu/11508.webp",
+      "sha256": "0c2ad1d6f7ed239555b106c843f360fc2c7ea2a4f1de86e99bbe8348fcf26f1a",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11511",
+      "url": "https://api.monobox.app/cropped-image/500x500/69560cfb410819cd4aabec1a311daa65.webp",
+      "file": "assets/menu/11511.webp",
+      "sha256": "98efc4aa0f65bd442d96272bd2e2ba037dfc66ccff5c2f23168f603f351910ee",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11512",
+      "url": "https://api.monobox.app/cropped-image/500x500/1c324044c97956be2612722eae4ed110.webp",
+      "file": "assets/menu/11512.webp",
+      "sha256": "d20c58b353fc940dcde94e6ab996868afc367a6c45e8ccc30344a4d3b258506b",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11513",
+      "url": "https://api.monobox.app/cropped-image/500x500/63f33851fb16ca5a25478c431d60c718.webp",
+      "file": "assets/menu/11513.webp",
+      "sha256": "2697da2ca63c006ab086a2123e3ff408494c74ca44cf948505849ccd121acac6",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11514",
+      "url": "https://api.monobox.app/cropped-image/500x500/79ccdbca09ba19f6413cf1511afe52d2.webp",
+      "file": "assets/menu/11514.webp",
+      "sha256": "f300a79aadf78be218825f640c49fdc78464899e6402be1964e503ff584aab10",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11515",
+      "url": "https://api.monobox.app/cropped-image/500x500/814471ac320aaf15b4660cfc42e4b34f.webp",
+      "file": "assets/menu/11515.webp",
+      "sha256": "01c4775368479580b7a499fef0f8dc1402dd6088dafc3780cbd8a2b939e7e58a",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11516",
+      "url": "https://api.monobox.app/cropped-image/500x500/1ee2e566cc0a0a21465d0d1599cc702b.webp",
+      "file": "assets/menu/11516.webp",
+      "sha256": "31ddf673289cb91db76bd99bc80e10da02bbb90dba63ebad7b39c34cb381d1d3",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11517",
+      "url": "https://api.monobox.app/cropped-image/500x500/878003572e0ef58485f33cf3064c0116.webp",
+      "file": "assets/menu/11517.webp",
+      "sha256": "222a2a487461bda2a03f70a5d6a84763e52ba2afe3d72c21475530a3b69c9078",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11518",
+      "url": "https://api.monobox.app/cropped-image/500x500/172427ac52a5e74a4105a0ad6b572efc.webp",
+      "file": "assets/menu/11518.webp",
+      "sha256": "d7d3bc038c876f9a8758bacf94dd0c4f69e167b4ff5541945538b8abe6bb52db",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11519",
+      "url": "https://api.monobox.app/cropped-image/500x500/65f68e8a2c41914cc92a95dd0c827198.webp",
+      "file": "assets/menu/11519.webp",
+      "sha256": "780aff38cce15255c2a13bf462ddabcca734c84c8a2326e2956cb59d0af0c681",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11520",
+      "url": "https://api.monobox.app/cropped-image/500x500/742c726cf1e56d19c9704775ee8725a4.webp",
+      "file": "assets/menu/11520.webp",
+      "sha256": "7dd9fb01c8efbc007e99b100a5b6556e179f021e27660493115fcbb88359ef71",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11521",
+      "url": "https://api.monobox.app/cropped-image/500x500/ed333ce21b9c93f88510bb995a874054.webp",
+      "file": "assets/menu/11521.webp",
+      "sha256": "c10290ad1d81712d5acc71bb1339f98c1a56fabab38ff83e67b2e3cbfcca2354",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11522",
+      "url": "https://api.monobox.app/cropped-image/500x500/9a49626d47edd637ea4e9b23898fb2f7.webp",
+      "file": "assets/menu/11522.webp",
+      "sha256": "5b3d2e96b26df1eccf76b8d7ad57275a2743fb8cdd1e9b30f94449b27bc568d6",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11523",
+      "url": "https://api.monobox.app/cropped-image/500x500/6bffc6259d3cfd913ef8209858b8dd31.webp",
+      "file": "assets/menu/11523.webp",
+      "sha256": "f50b8a180f33e123e09ccf0b9ac31c52b048602ef4f1e5a51e668172c4e68481",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11524",
+      "url": "https://api.monobox.app/cropped-image/500x500/5416b75cbd93d7890595d1e52b9df496.webp",
+      "file": "assets/menu/11524.webp",
+      "sha256": "52fa5d2b2b5fcc862488254611bf1369e612efb1d7feb0c98ced0abf90eeae18",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11525",
+      "url": "https://api.monobox.app/cropped-image/500x500/6099c134e7f56c0a2c458061374d7c7d.webp",
+      "file": "assets/menu/11525.webp",
+      "sha256": "62480a906e526bf8187abea5404346a2fab8514d13e4f647805769f1d9652ffe",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11526",
+      "url": "https://api.monobox.app/cropped-image/500x500/1a616b83922bf02cd5e9eb5bd1b8998d.webp",
+      "file": "assets/menu/11526.webp",
+      "sha256": "5caf5f0d96ecc8238d143b881000f7d01bf418a52d1d5a73dc3904541ff7f9cd",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "productId": "11527",
+      "url": "https://api.monobox.app/cropped-image/500x500/2632f0abd9c94a11fce92b5533c7fbf4.webp",
+      "file": "assets/menu/11527.webp",
+      "sha256": "b6c56f31e1d8c212b2ccabbb58cd782233874223962a9135d3dae5b687851f83",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11528",
+      "url": "https://api.monobox.app/cropped-image/500x500/1195882a433694e247458e633b805acf.webp",
+      "file": "assets/menu/11528.webp",
+      "sha256": "15d99db48f3aefe25d0c156cc78a5fd2a9a8996f18db727ec97714d1ec562fc4",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11529",
+      "url": "https://api.monobox.app/cropped-image/500x500/f48a39b1c920a80fcf932f52fbb84a65.webp",
+      "file": "assets/menu/11529.webp",
+      "sha256": "d6b1ec38f37eac1694153bbcc448967b6ce59e4f3491bb32ed6f11f50d6fb67d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11530",
+      "url": "https://api.monobox.app/cropped-image/500x500/889ee1e6ef2ef6e6427378c3976f75cf.webp",
+      "file": "assets/menu/11530.webp",
+      "sha256": "88dd22c30f7a79353a232278100705819c19da1824e5209fe8c943be632b2c76",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11537",
+      "url": "https://api.monobox.app/cropped-image/500x500/53f773e4b9c95bbfe91298353310eeea.webp",
+      "file": "assets/menu/11537.webp",
+      "sha256": "88dd22c30f7a79353a232278100705819c19da1824e5209fe8c943be632b2c76",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11538",
+      "url": "https://api.monobox.app/cropped-image/500x500/b436f094c032161526559c54d8d38be7.webp",
+      "file": "assets/menu/11538.webp",
+      "sha256": "88dd22c30f7a79353a232278100705819c19da1824e5209fe8c943be632b2c76",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11539",
+      "url": "https://api.monobox.app/cropped-image/500x500/8623172b93874c8f04e3cde7a77e44a6.webp",
+      "file": "assets/menu/11539.webp",
+      "sha256": "88dd22c30f7a79353a232278100705819c19da1824e5209fe8c943be632b2c76",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11540",
+      "url": "https://api.monobox.app/cropped-image/500x500/3bbac22dad509faff4f302f98fb2fbdd.webp",
+      "file": "assets/menu/11540.webp",
+      "sha256": "88dd22c30f7a79353a232278100705819c19da1824e5209fe8c943be632b2c76",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11541",
+      "url": "https://api.monobox.app/cropped-image/500x500/3468e0f83e5c32e41d89344ee223fd39.webp",
+      "file": "assets/menu/11541.webp",
+      "sha256": "6e06cbfcfb384714c8cf530c4ee631604dbcb082c9dd2dd7854c48dd320802e9",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11542",
+      "url": "https://api.monobox.app/cropped-image/500x500/010ab2b95a15fc69d26823c12bc4a2bc.webp",
+      "file": "assets/menu/11542.webp",
+      "sha256": "6e06cbfcfb384714c8cf530c4ee631604dbcb082c9dd2dd7854c48dd320802e9",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11543",
+      "url": "https://api.monobox.app/cropped-image/500x500/85c555c272fd7fedfaf64f11e1af6e54.webp",
+      "file": "assets/menu/11543.webp",
+      "sha256": "6e06cbfcfb384714c8cf530c4ee631604dbcb082c9dd2dd7854c48dd320802e9",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11544",
+      "url": "https://api.monobox.app/cropped-image/500x500/0ef9333b3b8f4c3b0c868cc636713ffb.webp",
+      "file": "assets/menu/11544.webp",
+      "sha256": "6e06cbfcfb384714c8cf530c4ee631604dbcb082c9dd2dd7854c48dd320802e9",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11545",
+      "url": "https://api.monobox.app/cropped-image/500x500/55715f9c33a2bb040d1d3d58b67d1f35.webp",
+      "file": "assets/menu/11545.webp",
+      "sha256": "6e06cbfcfb384714c8cf530c4ee631604dbcb082c9dd2dd7854c48dd320802e9",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11546",
+      "url": "https://api.monobox.app/cropped-image/500x500/adb562fe398156fe3542d488cd90f7e1.webp",
+      "file": "assets/menu/11546.webp",
+      "sha256": "6fdc5221581c8749ac169eeb10638f86055f4272432cbd94398364ddc60bdcf2",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11547",
+      "url": "https://api.monobox.app/cropped-image/500x500/89024b80f05c7a5200adad4485319ece.webp",
+      "file": "assets/menu/11547.webp",
+      "sha256": "6fdc5221581c8749ac169eeb10638f86055f4272432cbd94398364ddc60bdcf2",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11548",
+      "url": "https://api.monobox.app/cropped-image/500x500/13e6ee0b2084ee80669ebd829847e4f4.webp",
+      "file": "assets/menu/11548.webp",
+      "sha256": "6fdc5221581c8749ac169eeb10638f86055f4272432cbd94398364ddc60bdcf2",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11549",
+      "url": "https://api.monobox.app/cropped-image/500x500/f2fb2a70e13a17e4c7ec8572ce34aa35.webp",
+      "file": "assets/menu/11549.webp",
+      "sha256": "6fdc5221581c8749ac169eeb10638f86055f4272432cbd94398364ddc60bdcf2",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11550",
+      "url": "https://api.monobox.app/cropped-image/500x500/7364ba3ca956caf17c8a4e8309579f20.webp",
+      "file": "assets/menu/11550.webp",
+      "sha256": "6fdc5221581c8749ac169eeb10638f86055f4272432cbd94398364ddc60bdcf2",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11551",
+      "url": "https://api.monobox.app/cropped-image/500x500/1d971a868722ca5f9294a275dba04313.webp",
+      "file": "assets/menu/11551.webp",
+      "sha256": "1a29c9e9089f9de4dce1d0306d807bff71a631e8604ed3c19db5e0879b772152",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11552",
+      "url": "https://api.monobox.app/cropped-image/500x500/39ec620714e9bdc8721b1c0215a1521e.webp",
+      "file": "assets/menu/11552.webp",
+      "sha256": "1a29c9e9089f9de4dce1d0306d807bff71a631e8604ed3c19db5e0879b772152",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11553",
+      "url": "https://api.monobox.app/cropped-image/500x500/5f4f5ff6a3cbf17f28c0b26db9622708.webp",
+      "file": "assets/menu/11553.webp",
+      "sha256": "1a29c9e9089f9de4dce1d0306d807bff71a631e8604ed3c19db5e0879b772152",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11554",
+      "url": "https://api.monobox.app/cropped-image/500x500/d40ee13ad935fdbff94cc91ad3524e0b.webp",
+      "file": "assets/menu/11554.webp",
+      "sha256": "1a29c9e9089f9de4dce1d0306d807bff71a631e8604ed3c19db5e0879b772152",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11555",
+      "url": "https://api.monobox.app/cropped-image/500x500/71e4930fdd9843730357ac221a8281f9.webp",
+      "file": "assets/menu/11555.webp",
+      "sha256": "b9b9ce1e683af2592043c1fabc7e601fd985fc9f1770f8b964a6565b2679691d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11556",
+      "url": "https://api.monobox.app/cropped-image/500x500/e166172ee63620a94e61e705c47aebaa.webp",
+      "file": "assets/menu/11556.webp",
+      "sha256": "b9b9ce1e683af2592043c1fabc7e601fd985fc9f1770f8b964a6565b2679691d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11557",
+      "url": "https://api.monobox.app/cropped-image/500x500/13a1536fa084e568fd60040500d09a44.webp",
+      "file": "assets/menu/11557.webp",
+      "sha256": "b9b9ce1e683af2592043c1fabc7e601fd985fc9f1770f8b964a6565b2679691d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11558",
+      "url": "https://api.monobox.app/cropped-image/500x500/60db37e68b83ae131be6b85179dd4b12.webp",
+      "file": "assets/menu/11558.webp",
+      "sha256": "b9b9ce1e683af2592043c1fabc7e601fd985fc9f1770f8b964a6565b2679691d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11559",
+      "url": "https://api.monobox.app/cropped-image/500x500/9b50b6697bfb4db9566511a0b5f72b19.webp",
+      "file": "assets/menu/11559.webp",
+      "sha256": "b9b9ce1e683af2592043c1fabc7e601fd985fc9f1770f8b964a6565b2679691d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11560",
+      "url": "https://api.monobox.app/cropped-image/500x500/8205251be89dbd0b8b911eedde23fb82.webp",
+      "file": "assets/menu/11560.webp",
+      "sha256": "b9b9ce1e683af2592043c1fabc7e601fd985fc9f1770f8b964a6565b2679691d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "9726",
+      "url": "https://api.monobox.app/cropped-image/500x500/25b6d07370cc2081f345138cf39ad5ef.webp",
+      "file": "assets/menu/9726.webp",
+      "sha256": "07d5ae47ddee0c41894f7b97265b884e294a4b9d3b7eb5722b8e2a3705519a50",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "10906",
+      "url": "https://api.monobox.app/cropped-image/500x500/af1c98498be22adaa870c5c7fb9a45f2.webp",
+      "file": "assets/menu/10906.webp",
+      "sha256": "c47112ce2e6bb84eaabdd8eaf8e987a2eb1f9c150927a3185b8c1f8749cb676c",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11561",
+      "url": "https://api.monobox.app/cropped-image/500x500/f2b50c4ffc85745d928bf2a68f1657c0.webp",
+      "file": "assets/menu/11561.webp",
+      "sha256": "d20c58b353fc940dcde94e6ab996868afc367a6c45e8ccc30344a4d3b258506b",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11562",
+      "url": "https://api.monobox.app/cropped-image/500x500/38e9582e1f7232113b2f24aa667d4541.webp",
+      "file": "assets/menu/11562.webp",
+      "sha256": "5c03efe2313811229ddcbce6bfa4ed0e47c6f5b68aed5ba7018e3edb172a01a6",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11563",
+      "url": "https://api.monobox.app/cropped-image/500x500/271b20c7e33501e50ebe63239fb7976d.webp",
+      "file": "assets/menu/11563.webp",
+      "sha256": "b5de6b37bf6ec879485e18309a075ffc35df139680dcd377d5a60c46a055dbe9",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11564",
+      "url": "https://api.monobox.app/cropped-image/500x500/17db2df1918a5eabd3433399ef67d37f.webp",
+      "file": "assets/menu/11564.webp",
+      "sha256": "11f2cbe62f6c37e05469bb88cdb3b521f23ff43e839e4d0c6d3eef35c1408889",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11565",
+      "url": "https://api.monobox.app/cropped-image/500x500/91abb71755e4b6b464be7ac9fe2a41de.webp",
+      "file": "assets/menu/11565.webp",
+      "sha256": "d3a15b1dbe262b6083c119c85f0cd7c4dcb17034b951627557d74cb608fdc220",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11566",
+      "url": "https://api.monobox.app/cropped-image/500x500/d2aa82df9b2f9d0031e68c4edf5ca2b7.webp",
+      "file": "assets/menu/11566.webp",
+      "sha256": "5c03efe2313811229ddcbce6bfa4ed0e47c6f5b68aed5ba7018e3edb172a01a6",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11567",
+      "url": "https://api.monobox.app/cropped-image/500x500/3107322e89593ac28e944930081de303.webp",
+      "file": "assets/menu/11567.webp",
+      "sha256": "f16f35377026595c6c27ff81260163af48be340ff81d8afd1f53e09debb2c33b",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11568",
+      "url": "https://api.monobox.app/cropped-image/500x500/be22f47982b9aa16b77f73a72adcbf4b.webp",
+      "file": "assets/menu/11568.webp",
+      "sha256": "d20c58b353fc940dcde94e6ab996868afc367a6c45e8ccc30344a4d3b258506b",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11569",
+      "url": "https://api.monobox.app/cropped-image/500x500/19464178eb0849b4dd86a4c9d3954e04.webp",
+      "file": "assets/menu/11569.webp",
+      "sha256": "b63e791de1de16a2d717cd9e9afc36d36c5975ec21582b6c0aa4da368135d777",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11570",
+      "url": "https://api.monobox.app/cropped-image/500x500/5dfc9ae83699e97c101a8eccf1220071.webp",
+      "file": "assets/menu/11570.webp",
+      "sha256": "96aa72d92d0036909a6514abaa34223c9049c023e260dc4600fbef779e86b402",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11571",
+      "url": "https://api.monobox.app/cropped-image/500x500/1a9676e5789a7b38d74f8b3efb6498e2.webp",
+      "file": "assets/menu/11571.webp",
+      "sha256": "b4b1a140288289d38124661512ae51f54087f8fb25faca8c60eb0296121a230f",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11572",
+      "url": "https://api.monobox.app/cropped-image/500x500/788a63176c09ffc1975f21a3697eb481.webp",
+      "file": "assets/menu/11572.webp",
+      "sha256": "b4b1a140288289d38124661512ae51f54087f8fb25faca8c60eb0296121a230f",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11573",
+      "url": "https://api.monobox.app/cropped-image/500x500/14a343ea3c6a6ad8a968355794a3ecea.webp",
+      "file": "assets/menu/11573.webp",
+      "sha256": "b4b1a140288289d38124661512ae51f54087f8fb25faca8c60eb0296121a230f",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11574",
+      "url": "https://api.monobox.app/cropped-image/500x500/97060ecc5048958c6c89f3f825f82ad6.webp",
+      "file": "assets/menu/11574.webp",
+      "sha256": "b4b1a140288289d38124661512ae51f54087f8fb25faca8c60eb0296121a230f",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11575",
+      "url": "https://api.monobox.app/cropped-image/500x500/b7df061e886c4916a5ff63f87a7b35ab.webp",
+      "file": "assets/menu/11575.webp",
+      "sha256": "ef8e24f398d00b990c8ed5d57743e065a0dee79858b33f8c7db43e0d6e284751",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11595",
+      "url": "https://api.monobox.app/cropped-image/500x500/a357e6bb4fb359d2e106d3f911e1503b.webp",
+      "file": "assets/menu/11595.webp",
+      "sha256": "78396352831432c170131f30e381ce37ca6d973ca3c718c86e4d16a3bbe2eeca",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11596",
+      "url": "https://api.monobox.app/cropped-image/500x500/4f1843762feccdcc7f78cbbe3ff9423a.webp",
+      "file": "assets/menu/11596.webp",
+      "sha256": "ad796cfe070902d8dbf5a1ad808d47a40a2571b934443d7b0dd9158be6af923b",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11597",
+      "url": "https://api.monobox.app/cropped-image/500x500/a6be9a3b3496763b3bcf0d5b6daba263.webp",
+      "file": "assets/menu/11597.webp",
+      "sha256": "8e9cc8a7438d3726e258276f008cb46aba4eba62b7c2a346f03bc8efdf18597c",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11598",
+      "url": "https://api.monobox.app/cropped-image/500x500/0a2d3b98fdafa488d055c9cc2b07f584.webp",
+      "file": "assets/menu/11598.webp",
+      "sha256": "f9a4b4834080dceb90dfb3b06745153b039ac8f7fef2e4a55792a7c5627eef7a",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11599",
+      "url": "https://api.monobox.app/cropped-image/500x500/f3277c7172ccff3d9da725203819a821.webp",
+      "file": "assets/menu/11599.webp",
+      "sha256": "4ac3a1c1d116cb873bff81748c11a0bdf2c060bf453adbc28f81eb7d9caf6387",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11600",
+      "url": "https://api.monobox.app/cropped-image/500x500/211f0a9c962ee715e231775596a72ed7.webp",
+      "file": "assets/menu/11600.webp",
+      "sha256": "0823f3886922d9161530db8fbf8170b1363bb79eadf864fd1b9c673bd73e420d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11601",
+      "url": "https://api.monobox.app/cropped-image/500x500/da3f1c513ce60b4bcda2a8acb9bf3b12.webp",
+      "file": "assets/menu/11601.webp",
+      "sha256": "d20c58b353fc940dcde94e6ab996868afc367a6c45e8ccc30344a4d3b258506b",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11602",
+      "url": "https://api.monobox.app/cropped-image/500x500/9f3935ae092005fc606dea2659211984.webp",
+      "file": "assets/menu/11602.webp",
+      "sha256": "ba19ce70899f21f507cc75f250e8253d4942031a550393d93947393e5dec735f",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11603",
+      "url": "https://api.monobox.app/cropped-image/500x500/e4b8103e5a02e1236953a0c8510fc165.webp",
+      "file": "assets/menu/11603.webp",
+      "sha256": "1d7e7ee27e741aef53132bb361d705fe493bd8286329bd93858acdf0144e07cb",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11604",
+      "url": "https://api.monobox.app/cropped-image/500x500/63057ab71bc6f79c23c37461a62174b2.webp",
+      "file": "assets/menu/11604.webp",
+      "sha256": "8f7a46ae951e1e234429ba618ecd93fc56d13d84aa06fd59007f83209fe81333",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11605",
+      "url": "https://api.monobox.app/cropped-image/500x500/5cc52c20d78f13e2c46128ef6dc1a6ef.webp",
+      "file": "assets/menu/11605.webp",
+      "sha256": "429cf811d385b11a1a175b25ef37407a4dc04bbc9087788a347f79637e364840",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11606",
+      "url": "https://api.monobox.app/cropped-image/500x500/128406d7ce7987b84d7d89e326a51b55.webp",
+      "file": "assets/menu/11606.webp",
+      "sha256": "224c1ca6fce560d3b3c61daed159a55668e797ce08083f5ff1a0e8afe65fc5c4",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11607",
+      "url": "https://api.monobox.app/cropped-image/500x500/c85fac33980a36e119fa77f7b3567e29.webp",
+      "file": "assets/menu/11607.webp",
+      "sha256": "d4b9880a73116643ee42353976dff36322ba93f6b3c2639742f95403f9f62b41",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11608",
+      "url": "https://api.monobox.app/cropped-image/500x500/806cad32c1c4e8aa215dc41296051e7d.webp",
+      "file": "assets/menu/11608.webp",
+      "sha256": "0f1c40de8ae596c647b2fc9e7e517261dc3cbdd2b55dfc2b385d9ec0de8759ca",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11609",
+      "url": "https://api.monobox.app/cropped-image/500x500/203d5f2a3a2664a9358f3e78672349e2.webp",
+      "file": "assets/menu/11609.webp",
+      "sha256": "aa37501044dcb9650cd09a146f3552cb018fe3baa16f32de9471f5f304a083b5",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11610",
+      "url": "https://api.monobox.app/cropped-image/500x500/b128fdd079e1e9fa965cde725bf62c3c.webp",
+      "file": "assets/menu/11610.webp",
+      "sha256": "160693796e3d58df04bf81254b2311d682f736fb75ae454166e4a56271ad4afd",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11611",
+      "url": "https://api.monobox.app/cropped-image/500x500/bb78341116e524705cf7935915be2ff4.webp",
+      "file": "assets/menu/11611.webp",
+      "sha256": "f1f167baa2b7558f593e523d947ab072e28014333d8565f2a8f510d67eca5d64",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "9718",
+      "url": "https://api.monobox.app/cropped-image/500x500/f4d3d9aaecda5f8ee961521c9a2d9258.webp",
+      "file": "assets/menu/9718.webp",
+      "sha256": "32ae867687d060d382d25f003e6e3d0c85243d49eeb3abdf10993fa6b91a21d0",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11483",
+      "url": "https://api.monobox.app/cropped-image/500x500/7ec1294011db027f3fe901125397ac91.webp",
+      "file": "assets/menu/11483.webp",
+      "sha256": "e4491cec730dd8d5fd766c18d2b187e3a0111a15edb28358639f57fe1312767f",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11484",
+      "url": "https://api.monobox.app/cropped-image/500x500/10ddec2550f9c3c51258b3d7d233f208.webp",
+      "file": "assets/menu/11484.webp",
+      "sha256": "496fcf11b291ecef1d073887faebd1da2713ecabd11e1438d17fc60c1ce64c62",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11485",
+      "url": "https://api.monobox.app/cropped-image/500x500/0d77d026a4a1470b1d99cabd8ffe21a4.webp",
+      "file": "assets/menu/11485.webp",
+      "sha256": "b5732a62356989c237888de019932a6208670dec6a361e133087a9c72fe7ed70",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11486",
+      "url": "https://api.monobox.app/cropped-image/500x500/54d16d4b480a3ae2ab90b79f173c2a78.webp",
+      "file": "assets/menu/11486.webp",
+      "sha256": "46e75cb07aeb7483c48086d38b9e221662ee3163d0e8e92123a937060c1b1a04",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11487",
+      "url": "https://api.monobox.app/cropped-image/500x500/e2ed1d97de41b543d15ac5723a0527fa.webp",
+      "file": "assets/menu/11487.webp",
+      "sha256": "21da83b5935889b05d1ec177f85d1ed8675782729114ca6e94641dfe3685cd90",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11488",
+      "url": "https://api.monobox.app/cropped-image/500x500/1c074cad017ad9ad423d8c6d9ec0cee1.webp",
+      "file": "assets/menu/11488.webp",
+      "sha256": "276a7fab835ed1c64714f44bc4b764529447f8f331810b2ddb34a64ff5f6ad16",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11489",
+      "url": "https://api.monobox.app/cropped-image/500x500/72d31decd35b0f2bf10d98a2ae2f49be.webp",
+      "file": "assets/menu/11489.webp",
+      "sha256": "6dcf4ce9e70b5b7bca9e87930849fee4625519d3a7ca933cb55a4a95418379a3",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11490",
+      "url": "https://api.monobox.app/cropped-image/500x500/102ae1ebb57375cc1ce6992126c4f6cb.webp",
+      "file": "assets/menu/11490.webp",
+      "sha256": "9b9a2678e1bd41712300b800e193d3e4518aae7c8a6e748049a4a78ad2461a47",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11491",
+      "url": "https://api.monobox.app/cropped-image/500x500/8c82a6c3cb1333e6987a41e9de85e4a7.webp",
+      "file": "assets/menu/11491.webp",
+      "sha256": "4f40e144149ae17f640031f41b5ba9ce126e25b84915db706e7c054c7b8eb134",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11492",
+      "url": "https://api.monobox.app/cropped-image/500x500/2e63c0e41a34f0dc5c7b0799bd43ad6c.webp",
+      "file": "assets/menu/11492.webp",
+      "sha256": "538cfc8f47567b28ce05a657d95edbc72ce7397bb8df331ccb16aa7f4f3c9093",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11493",
+      "url": "https://api.monobox.app/cropped-image/500x500/62934f7992ab7111a665ad181ae83369.webp",
+      "file": "assets/menu/11493.webp",
+      "sha256": "d20c58b353fc940dcde94e6ab996868afc367a6c45e8ccc30344a4d3b258506b",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11612",
+      "url": "https://api.monobox.app/cropped-image/500x500/0d4a9d54a0d1aa4d3c84f26ca40c3d77.webp",
+      "file": "assets/menu/11612.webp",
+      "sha256": "c10d55d7fd6f3a8f32ed86644ef6b1a258351bf05ee4079defb0571bc2f49605",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11613",
+      "url": "https://api.monobox.app/cropped-image/500x500/33d12ce6c774ee0ca6998fb792418871.webp",
+      "file": "assets/menu/11613.webp",
+      "sha256": "c10d55d7fd6f3a8f32ed86644ef6b1a258351bf05ee4079defb0571bc2f49605",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11614",
+      "url": "https://api.monobox.app/cropped-image/500x500/78bda1317d940a686c956c6ea0fb8fa5.webp",
+      "file": "assets/menu/11614.webp",
+      "sha256": "c10d55d7fd6f3a8f32ed86644ef6b1a258351bf05ee4079defb0571bc2f49605",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11615",
+      "url": "https://api.monobox.app/cropped-image/500x500/22ec780ed7e7fd2011d69664909ef0dd.webp",
+      "file": "assets/menu/11615.webp",
+      "sha256": "1e9d03b411f79209df3bea82aad5b0c8d6f82ceb441101d453b928ab214c1355",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11616",
+      "url": "https://api.monobox.app/cropped-image/500x500/ea852e2c68539dad9e7849bfdcd542e9.webp",
+      "file": "assets/menu/11616.webp",
+      "sha256": "26dd12aaf1ffa8bc13d4b7584506830127b69701d0d9a1a725ce7e78c0c5d194",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11617",
+      "url": "https://api.monobox.app/cropped-image/500x500/9cb7e442e0e62a03c3b448d1c4d11c55.webp",
+      "file": "assets/menu/11617.webp",
+      "sha256": "214e8481530f8cf8eea64a56ec96b9a602d5acda96f26631f5157ccf4d115b4b",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11618",
+      "url": "https://api.monobox.app/cropped-image/500x500/78ca1d6fbe831875faef9144c46e3fca.webp",
+      "file": "assets/menu/11618.webp",
+      "sha256": "22553fa4d80db0a5fe905cbd4ca23fec3d7dbf700268f2cd1cd6d04fa99a78ac",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11622",
+      "url": "https://api.monobox.app/cropped-image/500x500/e298688f6a416fe663d8d769c2f8dfa6.webp",
+      "file": "assets/menu/11622.webp",
+      "sha256": "647dcb96051d1239fa644daf521986716ce8d836d4b422e124e4e31de9586ecb",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11623",
+      "url": "https://api.monobox.app/cropped-image/500x500/0e5391feacb45b52af13756886cc5e9b.webp",
+      "file": "assets/menu/11623.webp",
+      "sha256": "e2af4b500ccd2f65cc3a404504fc80f3b3ee8e4c80375a0a88f2a0136bebc51d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11624",
+      "url": "https://api.monobox.app/cropped-image/500x500/baca62eedae8b87893eef0f606805c77.webp",
+      "file": "assets/menu/11624.webp",
+      "sha256": "88da81d369befa47d3bd523902abd0945585d53d86935803924daca5670380c6",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11625",
+      "url": "https://api.monobox.app/cropped-image/500x500/eed4da307aa30b941d5de3917fad2756.webp",
+      "file": "assets/menu/11625.webp",
+      "sha256": "b227dc1dfb6547cf5e32921556219618fce59bad5e21566e14a1131d1c947f71",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11626",
+      "url": "https://api.monobox.app/cropped-image/500x500/1866a5e79cb3751ceb15d0853e6774ef.webp",
+      "file": "assets/menu/11626.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11627",
+      "url": "https://api.monobox.app/cropped-image/500x500/c69b311eb802371d50323f9997a4bfc4.webp",
+      "file": "assets/menu/11627.webp",
+      "sha256": "dbb12ef377a50bda857fb3b4629b2a05ca9ba027db3075244456b884951a5f69",
+      "width": 800,
+      "height": 800
+    },
+    {
+      "productId": "11628",
+      "url": "https://api.monobox.app/cropped-image/500x500/f30a2ec3a34eedb9f95be739d515769c.webp",
+      "file": "assets/menu/11628.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11629",
+      "url": "https://api.monobox.app/cropped-image/500x500/f09508def15106e6667733d7d4ca1551.webp",
+      "file": "assets/menu/11629.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11630",
+      "url": "https://api.monobox.app/cropped-image/500x500/041fc706c8edbef5d49acf3d79a68305.webp",
+      "file": "assets/menu/11630.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11631",
+      "url": "https://api.monobox.app/cropped-image/500x500/2adec68a8e0559061f30d76df72cdff1.webp",
+      "file": "assets/menu/11631.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11632",
+      "url": "https://api.monobox.app/cropped-image/500x500/6509c2737d6a774b2d4f22cc233cc6f8.webp",
+      "file": "assets/menu/11632.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11633",
+      "url": "https://api.monobox.app/cropped-image/500x500/3d624dc79867030479e10d9befee5ddd.webp",
+      "file": "assets/menu/11633.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11634",
+      "url": "https://api.monobox.app/cropped-image/500x500/8454ec491d0de5b334916cb4bb18d74c.webp",
+      "file": "assets/menu/11634.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11635",
+      "url": "https://api.monobox.app/cropped-image/500x500/f9cf4d9b0c66e1692a4be05275ebd464.webp",
+      "file": "assets/menu/11635.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11636",
+      "url": "https://api.monobox.app/cropped-image/500x500/d98ba58a4e0de260dca2db12617d19d8.webp",
+      "file": "assets/menu/11636.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11637",
+      "url": "https://api.monobox.app/cropped-image/500x500/3ebb4c54265b5720d540e80f997b318f.webp",
+      "file": "assets/menu/11637.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11638",
+      "url": "https://api.monobox.app/cropped-image/500x500/74f8dbdec05f21a39540af8550c9d5cb.webp",
+      "file": "assets/menu/11638.webp",
+      "sha256": "fc2f79a1a5d5b474e51e45a00efce8ce96864c143c09cf31e2bdf655d57a91aa",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11639",
+      "url": "https://api.monobox.app/cropped-image/500x500/9a647ec91475dbe4cc8fa7fe7be80568.webp",
+      "file": "assets/menu/11639.webp",
+      "sha256": "8a2c6bdd213f54f1c4b0e56f9526a3ad99845d9d935269e79ca24eeb15a42c5e",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11640",
+      "url": "https://api.monobox.app/cropped-image/500x500/0d4ac92244ddb81f2f1a362345dbfef0.webp",
+      "file": "assets/menu/11640.webp",
+      "sha256": "e5e83e2d6a8de5d47b716fe7d282bb9e9e89848ff0fd4f094b0672cba1c2128a",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11641",
+      "url": "https://api.monobox.app/cropped-image/500x500/099110d71e1d5c943708566922337475.webp",
+      "file": "assets/menu/11641.webp",
+      "sha256": "901665827396ae2f5e0cc22533abe5767f535e4a04891a6f135414dca46a384d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11642",
+      "url": "https://api.monobox.app/cropped-image/500x500/4697d9af0d0ff7f23476c31223caff54.webp",
+      "file": "assets/menu/11642.webp",
+      "sha256": "c8f29daf96950a4db68b02c301749a6898f7b2bc514cf0f2b42cd4a6af5f3e2a",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11643",
+      "url": "https://api.monobox.app/cropped-image/500x500/d5e4946491e2734ec6d568c93c3fdcd3.webp",
+      "file": "assets/menu/11643.webp",
+      "sha256": "d20c58b353fc940dcde94e6ab996868afc367a6c45e8ccc30344a4d3b258506b",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11644",
+      "url": "https://api.monobox.app/cropped-image/500x500/2a949ebd25272a80517152ecd18b4b7f.webp",
+      "file": "assets/menu/11644.webp",
+      "sha256": "9b9ce54653a2302623985922f0f0410e85aba92d6698a71418236943551078a9",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11645",
+      "url": "https://api.monobox.app/cropped-image/500x500/8d728f3bb21aa5453cb6451f5529d151.webp",
+      "file": "assets/menu/11645.webp",
+      "sha256": "bac230c62547319f0eee2973b6bb13a541ee8ab8b15097a4ae2dcd14f90dc2ac",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11646",
+      "url": "https://api.monobox.app/cropped-image/500x500/3d952842059bb11c776409d0973e626a.webp",
+      "file": "assets/menu/11646.webp",
+      "sha256": "e5e83e2d6a8de5d47b716fe7d282bb9e9e89848ff0fd4f094b0672cba1c2128a",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11647",
+      "url": "https://api.monobox.app/cropped-image/500x500/04a04a3ead60ab647ce92a24b4c8b36a.webp",
+      "file": "assets/menu/11647.webp",
+      "sha256": "d81dfa29c8438747d707e2af6e3d77c01e967e1651df33d97edbd92334a32f7d",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11648",
+      "url": "https://api.monobox.app/cropped-image/500x500/d87c3b54a237ac25062e454a0e659bdc.webp",
+      "file": "assets/menu/11648.webp",
+      "sha256": "318bb4c127d9247c6983991a247b2439751cd24c8d00c56f0613c6c112c276b1",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11649",
+      "url": "https://api.monobox.app/cropped-image/500x500/8ddd506a7cfdbf0ecf325e6982ebaf79.webp",
+      "file": "assets/menu/11649.webp",
+      "sha256": "0738dc8749b17aa1c27d4d22ffce5d027adb2ff2f5c652b48f3907c288a2fb28",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11650",
+      "url": "https://api.monobox.app/cropped-image/500x500/9a3e87be196210ffd827382a0eb9e60f.webp",
+      "file": "assets/menu/11650.webp",
+      "sha256": "d57c3ad03c0aabc51898c4bb06dbbaba2668e7fcd6be88682f8065d926f7f696",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11651",
+      "url": "https://api.monobox.app/cropped-image/500x500/c4c6f03fef6bb36ec5ef87789ce680ed.webp",
+      "file": "assets/menu/11651.webp",
+      "sha256": "755ce205fe9b236a24f7401b77c71a50fe19b8a6a5408e1ff8c1d33b44122111",
+      "width": 500,
+      "height": 500
+    },
+    {
+      "productId": "11652",
+      "url": "https://api.monobox.app/cropped-image/500x500/4b30b089a41f7dcaaddc841a9a37ee14.webp",
+      "file": "assets/menu/11652.webp",
+      "sha256": "6fdeebb022801e97c54c2bfa3533f863446e67717048a6da4822c5f25854a7c3",
+      "width": 500,
+      "height": 500
+    }
+  ]
+}
