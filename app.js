@@ -19,13 +19,14 @@ const paths = {
   search:'<circle cx="10.5" cy="10.5" r="7"/><path d="m16 16 5 5"/>',
   truck:'<path d="M2 5h12v12H2zM14 9h4l4 5v3h-8"/><path d="M18 9v5h4"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/>',
   bowl:'<path d="M3 12h18c0 5-4 9-9 9s-9-4-9-9ZM7 21h10M6 7c-2-3 3-2 1-5m5 5c-2-3 3-2 1-5m5 5c-2-3 3-2 1-5"/>',
-  sort:'<path d="M4 6h16M7 12h10M10 18h4"/>',
   info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.5"/>',
   check:'<path d="m5 12 4 4L19 6"/>',
   spark:'<path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/>',
   sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>',
   gift:'<path d="M3 8h18v4H3zM5 12v9h14v-9M12 8v13"/><path d="M12 8H8a3 3 0 1 1 3-3l1 3Zm0 0h4a3 3 0 1 0-3-3l-1 3Z"/>',
   menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18m-13 5h2m4 0h2"/>',
   'arrow-up-right':'<path d="M6 18 18 6M6 6h12v12"/>',
   phone:'<path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 2a15 15 0 0 1-7-7l2-2-2-5Z"/>',
   tag:'<path d="M20 13 11 22 2 13V3h10l8 8a1.4 1.4 0 0 1 0 2Z"/><circle cx="7" cy="8" r="1.2"/>',
@@ -38,15 +39,14 @@ const savedFavorites = readStorage('chavan:favorites:v1', []);
 const state = {
   cart: normalizeCart(readStorage('chavan:cart:v1', []), products),
   favorites: new Set(Array.isArray(savedFavorites) ? savedFavorites.filter(id => byId.has(id)) : []),
-  category: 'cuduski', search: '', sort: 'recommended', limit: 12,
+  category: categories[0].id, search: '',
   mode: 'delivery', address: '', promoCode: '', promoError: '',
   product: null, productQuantity: 1, selections: {}, checkout: null,
 };
-const categoryPriority = ['cuduski','xinkal-1','mangal','darginskie-pirogi','kavkazskie-bliuda-1','salaty-1','supy-1','goriacie-bliuda','xolodnye-zakuski-1','zavtraki-1','deserty-1','detskoe','garniry','sousy-1'];
-const categoryRank = id => categoryPriority.includes(id) ? categoryPriority.indexOf(id) : categoryPriority.length;
+const menuCategories = categories.map(category => ({...category,name:category.name.replace(/\.+\s*$/, '').trim()}));
+const categoryNames = new Map(menuCategories.map(category => [category.id,category.name]));
 const displayCategories = [
-  ...[...categories].sort((a,b) => categoryRank(a.id)-categoryRank(b.id)).map(c => ({...c,name:c.id === 'cuduski'?'Чуду':c.name})),
-  {id:'all',name:'Всё меню'},
+  ...menuCategories,
   {id:'offers',name:'Блюда со скидкой',icon:'tag'},
   {id:'favorites',name:'Избранное',icon:'heart'},
 ];
@@ -56,41 +56,50 @@ function toast(message) { clearTimeout(toastTimer); $('#toast').textContent=mess
 function totals() { return calculateTotals(state.cart, products, {mode:state.mode,promoCode:state.promoCode}); }
 function productCount(id) { return state.cart.filter(line=>line.id===id).reduce((total,line)=>total+line.quantity,0); }
 
-function categoryCount(id) {
-  if(id==='all')return products.length;
-  if(id==='offers')return products.filter(product=>product.oldPrice>product.price).length;
-  if(id==='favorites')return state.favorites.size;
-  return products.filter(product=>product.category===id).length;
-}
+function isFilteredMenu() { return !!state.search || !categoryNames.has(state.category); }
 function categoryMarkup(category,action='category') {
-  return `<button class="category" data-action="${action}" data-category="${category.id}" aria-pressed="${!state.search&&state.category===category.id}"><span class="category-name">${category.icon?icon(category.icon):''}${escape(category.name)}</span><span class="category-count">${categoryCount(category.id)}</span></button>`;
+  return `<button class="category" data-action="${action}" data-category="${category.id}" aria-pressed="${!state.search&&state.category===category.id}"><span class="category-name">${category.icon?icon(category.icon):''}${escape(category.name)}</span></button>`;
+}
+function updateCategoryState() {
+  const label=state.search?'Поиск по меню':displayCategories.find(category=>category.id===state.category)?.name||'Категории';
+  $$('[data-action="category"],[data-action="choose-category"]').forEach(button=>button.setAttribute('aria-pressed',!state.search&&button.dataset.category===state.category));
+  for(const selector of ['#mobile-category-label','#bottom-category-label']) { const element=$(selector);if(element)element.textContent=label; }
 }
 function renderCategories() {
   const focused=document.activeElement?.closest('#categories [data-category]')?.dataset.category;
   $('#categories').innerHTML=displayCategories.map(category=>categoryMarkup(category)).join('');
-  $('#mobile-category-label').textContent=state.search?'Поиск по меню':displayCategories.find(category=>category.id===state.category)?.name||'Категории';
-  $$('.menu-total').forEach(element=>element.textContent=`${products.length} ${plural(products.length,'блюдо','блюда','блюд')}`);
+  updateCategoryState();
   if(focused)$$('#categories [data-category]').find(button=>button.dataset.category===focused)?.focus({preventScroll:true});
 }
 function showCategories() {
   showModal(`<div class="modal-simple"><h2 id="modal-title">Категории меню</h2><div class="category-picker">${displayCategories.map(category=>categoryMarkup(category,'choose-category')).join('')}</div></div>`,'categories');
 }
-function scrollMenu() {
-  $('#menu').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
+function scrollMenu(target=$('#menu')) {
+  target?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
 }
+let menuSections=[];
+let categoryFrame=0;
+function trackCategory() {
+  categoryFrame=0;
+  if(isFilteredMenu()||!menuSections.length)return;
+  const anchorOffset=parseFloat(getComputedStyle(menuSections[0]).scrollMarginTop)||0;
+  const boundary=Math.max(($('.header')?.getBoundingClientRect().bottom||0)+24,anchorOffset)+2;
+  let current=menuSections[0].dataset.menuCategory;
+  for(const section of menuSections) {
+    if(section.getBoundingClientRect().top>boundary)break;
+    current=section.dataset.menuCategory;
+  }
+  if(current!==state.category){state.category=current;updateCategoryState();}
+}
+function scheduleCategoryTracking() { if(!categoryFrame)categoryFrame=requestAnimationFrame(trackCategory); }
 function filteredProducts() {
-  let items;
   if(state.search) {
     const query=normalizeSearch(state.search);
-    items=products.filter(p=>normalizeSearch(`${p.name} ${p.description} ${categories.find(c=>c.id===p.category)?.name||''}`).includes(query));
-  } else if(state.category==='favorites') items=products.filter(p=>state.favorites.has(p.id));
-  else if(state.category==='offers') items=products.filter(p=>p.oldPrice>p.price);
-  else if(state.category==='all') items=[...products];
-  else items=products.filter(p=>p.category===state.category);
-  if(state.sort==='price-asc') items.sort((a,b)=>a.price-b.price);
-  if(state.sort==='price-desc') items.sort((a,b)=>b.price-a.price);
-  if(state.sort==='name') items.sort((a,b)=>a.name.localeCompare(b.name,'ru'));
-  return items;
+    return products.filter(product=>normalizeSearch(`${product.name} ${product.description} ${categoryNames.get(product.category)||''}`).includes(query));
+  }
+  if(state.category==='favorites')return products.filter(product=>state.favorites.has(product.id));
+  if(state.category==='offers')return products.filter(product=>product.oldPrice>product.price);
+  return products;
 }
 function quantityControl(line, compact=false) {
   return `<div class="quantity-control${compact?' compact':''}"><button data-action="line-minus" data-key="${escape(line.key)}" aria-label="Уменьшить количество: ${escape(byId.get(line.id)?.name)}">${icon('minus')}</button><span aria-label="Количество">${line.quantity}</span><button data-action="line-plus" data-key="${escape(line.key)}" aria-label="Увеличить количество: ${escape(byId.get(line.id)?.name)}" ${line.quantity>=99?'disabled':''}>${icon('plus')}</button></div>`;
@@ -98,12 +107,12 @@ function quantityControl(line, compact=false) {
 function productCard(product,placement='catalog') {
   const daily=placement==='daily';
   const line=!product.modifiers?.length&&state.cart.find(item=>item.id===product.id);
-  const categoryName=categories.find(category=>category.id===product.category)?.name;
+  const categoryName=categoryNames.get(product.category);
   const savings=product.oldPrice>product.price?product.oldPrice-product.price:0;
   const discount=savings?Math.round(savings/product.oldPrice*100):0;
   const metadata=[product.weight?`${product.weight} г`:'',daily?'':categoryName].filter(Boolean).map(escape).join(' <span aria-hidden="true">·</span> ');
   const description=typeof product.description==='string'?product.description.trim():'';
-  return `<article class="product-card${daily?' daily-card':''}" data-product="${product.id}" data-placement="${placement}"><div class="product-visual"><button class="product-image-button" data-action="product" data-id="${product.id}" aria-label="Подробнее: ${escape(product.name)}"><img src="${escape(product.image)}" alt="${escape(product.name)}" width="500" height="500" loading="${daily?'eager':'lazy'}" decoding="async"></button>${savings?`<span class="product-badge">−${daily?formatRub(savings):`${discount}%`}</span>`:''}<button class="favorite-button" data-action="favorite" data-id="${product.id}" aria-label="${state.favorites.has(product.id)?'Убрать из избранного':'В избранное'}: ${escape(product.name)}" aria-pressed="${state.favorites.has(product.id)}">${icon('heart')}</button></div><div class="product-details"><button class="product-heading" data-action="product" data-id="${product.id}"><h4>${escape(product.name)}</h4></button>${metadata?`<div class="product-weight">${metadata}</div>`:''}${!daily&&description?`<p class="product-description">${escape(description)}</p>`:''}<div class="product-price-row"><div><span class="price">${formatRub(product.price)}</span>${savings?`<span class="old-price">${formatRub(product.oldPrice)}</span>`:''}</div>${line?quantityControl(line):`<button class="add-button" data-action="add" data-id="${product.id}" aria-label="${product.modifiers?.length?'Выбрать добавки':'Добавить'}: ${escape(product.name)}" ${product.available?'':'disabled'}>${icon('plus')}${daily?'<span>Добавить</span>':''}</button>`}</div></div></article>`;
+  return `<article class="product-card${daily?' daily-card':''}" data-product="${product.id}" data-placement="${placement}" data-quantity="${productCount(product.id)}"><div class="product-visual"><button class="product-image-button" data-action="product" data-id="${product.id}" aria-label="Подробнее: ${escape(product.name)}"><img src="${escape(product.image)}" alt="${escape(product.name)}" width="500" height="500" loading="${daily?'eager':'lazy'}" decoding="async"></button>${savings?`<span class="product-badge">−${daily?formatRub(savings):`${discount}%`}</span>`:''}<button class="favorite-button" data-action="favorite" data-id="${product.id}" aria-label="${state.favorites.has(product.id)?'Убрать из избранного':'В избранное'}: ${escape(product.name)}" aria-pressed="${state.favorites.has(product.id)}">${icon('heart')}</button></div><div class="product-details"><button class="product-heading" data-action="product" data-id="${product.id}"><h4>${escape(product.name)}</h4></button>${metadata?`<div class="product-weight">${metadata}</div>`:''}${!daily&&description?`<p class="product-description">${escape(description)}</p>`:''}<div class="product-price-row"><div><span class="price">${formatRub(product.price)}</span>${savings?`<span class="old-price">${formatRub(product.oldPrice)}</span>`:''}</div>${line?quantityControl(line):`<button class="add-button" data-action="add" data-id="${product.id}" aria-label="${product.modifiers?.length?'Выбрать добавки':'Добавить'}: ${escape(product.name)}" ${product.available?'':'disabled'}>${icon('plus')}${daily?'<span>Добавить</span>':''}</button>`}</div></div></article>`;
 }
 function renderDaily() {
   const dailyProducts=dishOfDayIds.map(id=>byId.get(id)).filter(Boolean);
@@ -113,7 +122,7 @@ function renderDaily() {
 function renderPromotion() {
   const promotion=promotions.find(item=>item.id==='kinza-cola-gift');
   if(!promotion)return;
-  $('#promotion-banner').innerHTML=`<article class="promotion-card"><div class="promotion-copy"><div class="promotion-kicker">${icon('gift')}АКЦИЯ РЕСТОРАНА</div><h3>${escape(promotion.title)}</h3><p>При заказе от <strong>5 000 ₽</strong></p><div class="promotion-meta"><span>${icon('truck')}Доставка</span><span>${icon('bag')}Самовывоз</span></div><button class="text-button" data-action="promotion-details" data-promotion="${promotion.id}">Условия акции${icon('arrow')}</button></div><div class="promotion-image"><img src="${escape(promotion.image)}" alt="Акция ресторана: два напитка Kinza Cola в подарок при заказе от 5 000 ₽" width="900" height="500" decoding="async"></div></article>`;
+  $('#promotion-banner').innerHTML=`<article class="promotion-card"><div class="promotion-copy"><div class="promotion-kicker">${icon('gift')}АКЦИЯ РЕСТОРАНА</div><h3>${escape(promotion.title)}</h3><p>При заказе от <strong>5 000 ₽</strong></p><div class="promotion-meta"><span>${icon('truck')}Доставка</span><span>${icon('bag')}Самовывоз</span></div><button class="text-button" data-action="promotion-details" data-promotion="${promotion.id}">Условия акции${icon('arrow')}</button></div><div class="promotion-image"><img src="${escape(promotion.image)}" alt="Акция ресторана: два напитка Kinza Cola в подарок при заказе от 5 000 ₽" width="2006" height="784" decoding="async"></div></article>`;
 }
 function showPromotion(id) {
   const promotion=promotions.find(item=>item.id===id);
@@ -122,16 +131,28 @@ function showPromotion(id) {
   showModal(`<div class="modal-simple"><h2 id="modal-title">${escape(promotion.title)}</h2><p class="modal-intro">${escape(promotion.description)}</p><ul class="promotion-conditions">${promotion.conditions.map(condition=>`<li>${escape(condition)}</li>`).join('')}</ul>${included.length?`<div class="promotion-products">${included.map(product=>`<button class="promotion-product" data-action="product" data-id="${product.id}"><img src="${escape(product.image)}" alt="" width="72" height="72"><span>${escape(product.name)}</span><strong>${formatRub(product.price)}</strong>${icon('arrow')}</button>`).join('')}</div>`:''}${id==='kinza-cola-gift'?`<div class="note-box promotion-gift-note">${icon('gift')}<span>Подарок — 2 напитка Kinza Cola. Они не входят в список оплачиваемых блюд. В демоверсии подарок не добавляется в корзину и заказ не отправляется.</span></div>`:''}<a class="text-link" href="${escape(promotion.sourceUrl)}" target="_blank" rel="noopener">Акция на сайте ресторана${icon('arrow-up-right')}</a></div>`,'promotion');
 }
 function renderCatalog() {
+  const filtered=isFilteredMenu();
   const items=filteredProducts();
   const category=displayCategories.find(item=>item.id===state.category);
   $('#daily').hidden=!!state.search;
   $('#promotions').hidden=!!state.search;
+  $('#catalog-title').hidden=!filtered;
   $('#catalog-title').textContent=state.search?'Результаты поиска':category?.name||'Меню';
-  $('#catalog-description').textContent=state.search?`По запросу «${state.search}»: ${items.length}`:`${items.length} ${plural(items.length,'блюдо','блюда','блюд')} в меню`;
-  $('#results-status').textContent=`Найдено блюд: ${items.length}`;
-  $('#product-grid').innerHTML=items.length?items.slice(0,state.limit).map(product=>productCard(product)).join(''):`<div class="empty-results">${icon(state.category==='favorites'?'heart':'search')}<h4>${state.category==='favorites'&&!state.search?'В избранном пока нет блюд':'Ничего не найдено'}</h4><p>${state.category==='favorites'&&!state.search?'Нажмите на сердечко на карточке блюда.':'Попробуйте другое название или откройте всё меню.'}</p><button class="button secondary" data-action="reset-menu">Всё меню ${icon('arrow')}</button></div>`;
-  $('#catalog-bottom').innerHTML=items.length>state.limit?`<button class="button" data-action="load-more">Показать ещё ${Math.min(12,items.length-state.limit)} ${plural(Math.min(12,items.length-state.limit),'блюдо','блюда','блюд')} ${icon('chevron')}</button>`:'';
+  $('#catalog-description').textContent=state.search?`По запросу «${state.search}»: ${items.length}`:filtered?'Выберите блюдо или вернитесь к меню ресторана.':'Листайте меню дальше или переходите к нужной категории.';
+  $('#results-status').textContent=filtered?`Найдено блюд: ${items.length}`:'';
+  const grid=$('#product-grid');
+  grid.className=filtered?'product-grid':'catalog-sections';
+  grid.innerHTML=filtered?(items.length?items.map(product=>productCard(product)).join(''):`<div class="empty-results">${icon(state.category==='favorites'?'heart':'search')}<h4>${state.category==='favorites'&&!state.search?'В избранном пока нет блюд':'Ничего не найдено'}</h4><p>${state.category==='favorites'&&!state.search?'Нажмите на сердечко на карточке блюда.':'Попробуйте другое название или вернитесь к меню ресторана.'}</p><button class="button secondary" data-action="reset-menu">Вернуться к меню ${icon('arrow')}</button></div>`):menuCategories.map(category=>`<section class="menu-category" id="menu-category-${category.id}" data-menu-category="${category.id}" aria-labelledby="heading-${category.id}"><h3 id="heading-${category.id}" tabindex="-1">${escape(category.name)}</h3><div class="product-grid">${products.filter(product=>product.category===category.id).map(product=>productCard(product)).join('')}</div></section>`).join('');
+  $('#catalog-bottom').innerHTML=filtered&&items.length?`<button class="text-button" data-action="reset-menu">Вернуться к меню ${icon('arrow')}</button>`:'';
+  menuSections=$$('[data-menu-category]',grid);
   updateFavorites();
+  scheduleCategoryTracking();
+}
+function refreshProductCards() {
+  $$('.product-card[data-product]').forEach(card=>{
+    const product=byId.get(card.dataset.product);
+    if(product&&Number(card.dataset.quantity)!==productCount(product.id))card.outerHTML=productCard(product,card.dataset.placement);
+  });
 }
 function plural(count,one,few,many){ const n=Math.abs(count)%100;return n>10&&n<20?many:n%10===1?one:n%10>=2&&n%10<=4?few:many; }
 function updateFavorites() {
@@ -147,8 +168,8 @@ function renderCart() {
   $('#header-cart-count').textContent=summary.count;
   $('#cart-item-badge').textContent=summary.count;
   $('#header-address').textContent=state.mode==='pickup'?'Самовывоз · Мосфильмовская, 53':state.address||'Указать адрес';
-  $('#mobile-cart').hidden=summary.count===0;
-  $('#mobile-cart-text').textContent=`Ваш заказ · ${summary.count} ${plural(summary.count,'блюдо','блюда','блюд')}`;
+  $('#mobile-cart').dataset.empty=String(summary.count===0);
+  $('#mobile-cart-text').textContent=summary.count?`Корзина · ${summary.count}`:'Корзина';
   $('#mobile-cart-total').textContent=formatRub(summary.total);
   $$('#cart-panel [data-action="mode"]').forEach(button=>button.setAttribute('aria-pressed',button.dataset.mode===state.mode));
   if(!state.cart.length){
@@ -169,19 +190,24 @@ function restoreControl(saved) {
   if(!candidate&&saved.group)candidate=$$('[data-group]').find(element=>element.dataset.group===saved.group&&element.dataset.item===saved.item&&!element.disabled);
   if(!candidate&&saved.product)candidate=$$('[data-product]').find(element=>element.dataset.product===saved.product&&sameRegion(element))?.querySelector('.quantity-control button:last-child,.add-button,.product-heading');
   if(!candidate&&saved.inCart)candidate=$('.cart-line button,#cart-panel [data-action="mode"]');
-  if(!candidate&&saved.product&&!saved.inModal)candidate=$('#catalog-title');
+  if(!candidate&&saved.product&&!saved.inModal)candidate=$(`#heading-${byId.get(saved.product)?.category}`)||$('#catalog-title');
   candidate?.focus({preventScroll:true});
 }
 function persistCart() {
   const focused=rememberControl();
   store('chavan:cart:v1',state.cart);
-  renderCart();renderDaily();renderCatalog();restoreControl(focused);
+  renderCart();refreshProductCards();restoreControl(focused);
 }
-function selectCategory(id,scroll=true) {
+function selectCategory(id,scroll=true,focusHeading=false) {
   if(!displayCategories.some(category=>category.id===id))return;
-  state.category=id;state.search='';state.limit=12;$('#search').value='';
-  renderCategories();renderCatalog();
-  if(scroll)scrollMenu();
+  const wasFiltered=isFilteredMenu();
+  clearTimeout(searchTimer);
+  state.category=id;state.search='';$('#search').value='';
+  if(wasFiltered||isFilteredMenu())renderCatalog();
+  updateCategoryState();
+  const target=categoryNames.has(id)?$(`#menu-category-${id}`):$('#menu');
+  if(scroll)scrollMenu(target);
+  if(focusHeading)(categoryNames.has(id)?$(`#heading-${id}`):$('#catalog-title'))?.focus({preventScroll:true});
 }
 let cartReturnFocus;
 let cartInertRegions=[];
@@ -191,7 +217,7 @@ function openCart() {
   const panel=$('#cart-panel');
   panel.classList.add('open');panel.setAttribute('role','dialog');panel.setAttribute('aria-modal','true');
   $('#cart-scrim').hidden=false;document.body.classList.add('cart-is-open');
-  cartInertRegions=$$('.header,.menu-sidebar,.page-heading,.page-tools,.promotions-section,.daily-section,.catalog,.menu-heading-row,.restaurant-info,.questions,.footer').filter(element=>!element.inert&&!element.contains(panel));
+  cartInertRegions=$$('.header,.menu-sidebar,.page-heading,.page-tools,.promotions-section,.daily-section,.catalog,.menu-heading-row,.restaurant-info,.reservation-preview,.footer,.mobile-dock').filter(element=>!element.inert&&!element.contains(panel));
   cartInertRegions.forEach(element=>element.inert=true);
   $('.cart-close').focus();
 }
@@ -208,7 +234,7 @@ function closeModal(){modal.close();state.product=null;state.checkout=null;$('#m
 function showProduct(id){const product=byId.get(id);if(!product)return;state.product=product;state.productQuantity=1;state.selections=normalizeSelections(product,{});renderProductModal();}
 function renderProductModal(){
   const product=state.product;const nutrition=product.nutrition;
-  const html=`<div class="modal-product"><div class="modal-product-photo"><img src="${escape(product.image)}" alt="${escape(product.name)}" width="500" height="500"><button class="favorite-button" data-action="favorite" data-id="${product.id}" aria-pressed="${state.favorites.has(product.id)}" aria-label="В избранное: ${escape(product.name)}">${icon('heart')}</button></div><div class="modal-product-info"><h2 id="modal-title">${escape(product.name)}</h2><div class="modal-weight">${product.weight} г · ${escape(categories.find(c=>c.id===product.category)?.name)}</div><p class="modal-description">${escape(product.description||'Описание блюда можно уточнить у ресторана по телефону +7 (926) 355-55-50.')}</p>${nutrition?`<div class="nutrition"><div><strong>${nutrition.calories??'—'}</strong><small>ккал</small></div><div><strong>${nutrition.protein??'—'} г</strong><small>белки</small></div><div><strong>${nutrition.fat??'—'} г</strong><small>жиры</small></div><div><strong>${nutrition.carbohydrates??'—'} г</strong><small>углеводы</small></div></div><p class="nutrition-note">Пищевая ценность на 100 г · по данным ресторана</p>`:''}<div id="modifiers">${modifierMarkup(product)}</div><p class="allergen-note">Есть аллергия? Уточните полный состав у ресторана до заказа.</p><div class="modal-add"><div class="quantity-control"><button data-action="product-minus" aria-label="Уменьшить количество" ${state.productQuantity===1?'disabled':''}>${icon('minus')}</button><span id="product-quantity">${state.productQuantity}</span><button data-action="product-plus" aria-label="Увеличить количество">${icon('plus')}</button></div><button class="button" data-action="product-add" ${product.available?'':'disabled'}>В корзину · <span id="product-total">${formatRub(getLinePrice({id:product.id,modifiers:state.selections},products)*state.productQuantity)}</span></button></div></div></div>`;
+  const html=`<div class="modal-product"><div class="modal-product-photo"><img src="${escape(product.image)}" alt="${escape(product.name)}" width="500" height="500"><button class="favorite-button" data-action="favorite" data-id="${product.id}" aria-pressed="${state.favorites.has(product.id)}" aria-label="В избранное: ${escape(product.name)}">${icon('heart')}</button></div><div class="modal-product-info"><h2 id="modal-title">${escape(product.name)}</h2><div class="modal-weight">${product.weight} г · ${escape(categoryNames.get(product.category))}</div><p class="modal-description">${escape(product.description||'Описание блюда можно уточнить у ресторана по телефону +7 (926) 355-55-50.')}</p>${nutrition?`<div class="nutrition"><div><strong>${nutrition.calories??'—'}</strong><small>ккал</small></div><div><strong>${nutrition.protein??'—'} г</strong><small>белки</small></div><div><strong>${nutrition.fat??'—'} г</strong><small>жиры</small></div><div><strong>${nutrition.carbohydrates??'—'} г</strong><small>углеводы</small></div></div><p class="nutrition-note">Пищевая ценность на 100 г · по данным ресторана</p>`:''}<div id="modifiers">${modifierMarkup(product)}</div><p class="allergen-note">Есть аллергия? Уточните полный состав у ресторана до заказа.</p><div class="modal-add"><div class="quantity-control"><button data-action="product-minus" aria-label="Уменьшить количество" ${state.productQuantity===1?'disabled':''}>${icon('minus')}</button><span id="product-quantity">${state.productQuantity}</span><button data-action="product-plus" aria-label="Увеличить количество">${icon('plus')}</button></div><button class="button" data-action="product-add" ${product.available?'':'disabled'}>В корзину · <span id="product-total">${formatRub(getLinePrice({id:product.id,modifiers:state.selections},products)*state.productQuantity)}</span></button></div></div></div>`;
   showModal(html,'product');updateFavorites();
 }
 function modifierMarkup(product){return(product.modifiers||[]).map(group=>`<fieldset class="modifier-group"><legend>${escape(group.name)}<small>${group.max===1?'Выберите один':`До ${group.max} добавок`}</small></legend>${group.items.map(item=>{const qty=state.selections[group.id]?.[item.id]||0;return group.max===1?`<label class="modifier-option"><input type="radio" name="modifier-${group.id}" data-group="${group.id}" value="${item.id}" ${qty?'checked':''}><span>${escape(item.name)}</span><small>${item.price?`+${formatRub(item.price)}`:'0 ₽'}</small></label>`:`<div class="modifier-option"><span>${escape(item.name)}</span><small>+${formatRub(item.price)}</small><div class="modifier-quantity"><button data-action="modifier-minus" data-group="${group.id}" data-item="${item.id}" aria-label="Убрать добавку: ${escape(item.name)}" ${qty?'':'disabled'}>${icon('minus')}</button><output>${qty}</output><button data-action="modifier-plus" data-group="${group.id}" data-item="${item.id}" aria-label="Добавить: ${escape(item.name)}" ${Object.values(state.selections[group.id]||{}).reduce((a,b)=>a+b,0)>=group.max?'disabled':''}>${icon('plus')}</button></div></div>`;}).join('')}</fieldset>`).join('');}
@@ -221,7 +247,7 @@ function updateProductTotals(){
 function showAddress(){
   showModal(`<div class="modal-simple"><h2 id="modal-title">Где встретимся?</h2><p class="modal-intro">Привезём любимые блюда к вам или подготовим заказ, чтобы вы забрали его по пути.</p><div class="fulfillment-switch"><button data-action="address-mode" data-mode="delivery" aria-pressed="${state.mode==='delivery'}">${icon('truck')} Доставка</button><button data-action="address-mode" data-mode="pickup" aria-pressed="${state.mode==='pickup'}">${icon('bag')} Самовывоз</button></div><form id="address-form">${state.mode==='delivery'?`<label class="field"><span>Адрес в Москве</span><input name="address" id="delivery-address" placeholder="Улица, дом, корпус" value="${escape(state.address)}" autocomplete="street-address" required minlength="5" maxlength="250"><span class="field-hint">Зону, стоимость и время доставки подтвердит ресторан. В демоверсии адрес не проверяется по карте.</span></label>`:`<div class="note-box">${icon('pin')}<div><strong>Москва, Мосфильмовская, 53</strong><br>Время приготовления и получения согласовывается с рестораном.</div></div>`}<button class="button full" type="submit">${state.mode==='delivery'?'Сохранить адрес':'Выбрать самовывоз'} ${icon('arrow')}</button></form></div>`,'address');
 }
-function deliveryInfo(){showModal(`<div class="modal-simple"><h2 id="modal-title">К вам домой.<br>Или с собой.</h2><p class="modal-intro">Вкусный стол начинается с любимых блюд. Выберите удобный способ получения.</p><div class="info-grid"><div class="info-card">${icon('truck')}<h3>Доставка по Москве</h3><p>Зона, время и стоимость зависят от адреса. Точные условия подтвердит ресторан.</p></div><div class="info-card">${icon('bag')}<h3>Самовывоз</h3><p>Заберите заказ по адресу: Москва, Мосфильмовская, 53. Уточните время готовности по телефону.</p></div></div><div class="note-box">${icon('info')}<span>Это демонстрационная версия нового сайта. Для настоящего заказа перейдите на действующий сайт или позвоните в ресторан.</span></div><div class="form-buttons"><a class="button" href="tel:+79263555550">Позвонить в ресторан</a><a class="button secondary" href="https://chavan-chudu.ru/delivery" target="_blank" rel="noopener">Условия доставки ${icon('arrow')}</a></div></div>`,'info');}
+function deliveryInfo(){showModal(`<div class="modal-simple"><h2 id="modal-title">К вам домой.<br>Или с собой.</h2><p class="modal-intro">Вкусный стол начинается с любимых блюд. Выберите удобный способ получения.</p><div class="info-grid"><div class="info-card">${icon('truck')}<h3>Доставка по Москве</h3><p>Зона, время и стоимость зависят от адреса. Точные условия подтвердит ресторан.</p></div><div class="info-card">${icon('bag')}<h3>Самовывоз</h3><p>Заберите заказ по адресу: Москва, Мосфильмовская, 53. Работаем до 22:00. Уточните время готовности по телефону.</p></div></div><div class="note-box">${icon('info')}<span>Это демонстрационная версия нового сайта. Для настоящего заказа перейдите на действующий сайт или позвоните в ресторан.</span></div><div class="form-buttons"><a class="button" href="tel:+79263555550">Позвонить в ресторан</a><a class="button secondary" href="https://chavan-chudu.ru/delivery" target="_blank" rel="noopener">Условия доставки ${icon('arrow')}</a></div></div>`,'info');}
 function checkoutField(name,label,placeholder,type='text',extra=''){
   const value=state.checkout?.[name]||'';
   return `<label class="field"><span>${label}</span><input name="${name}" id="checkout-${name}" type="${type}" placeholder="${placeholder}" value="${escape(value)}" ${extra} aria-describedby="error-${name}"><span class="field-error" id="error-${name}"></span></label>`;
@@ -243,8 +269,8 @@ document.addEventListener('click',event=>{
   if(sectionLink){
     const search=$('#search');
     clearTimeout(searchTimer);
-    if(state.search||search.value){
-      state.search='';state.limit=12;search.value='';renderCategories();renderCatalog();
+    if(isFilteredMenu()||search.value){
+      state.search='';if(!categoryNames.has(state.category))state.category=menuCategories[0].id;search.value='';updateCategoryState();renderCatalog();
     }
     return;
   }
@@ -253,13 +279,12 @@ document.addEventListener('click',event=>{
   switch(action){
     case 'category':selectCategory(category);break;
     case 'open-categories':showCategories();break;
-    case 'choose-category':closeModal();selectCategory(category);$('#catalog-title').focus({preventScroll:true});break;
+    case 'choose-category':closeModal();selectCategory(category,true,true);break;
     case 'promotion-details':showPromotion(button.dataset.promotion);break;
-    case 'reset-menu':selectCategory('all');break;
+    case 'reset-menu':selectCategory(menuCategories[0].id,true,true);break;
     case 'offers':selectCategory('offers');break;
     case 'favorites':selectCategory('favorites');break;
-    case 'load-more':{const before=state.limit;state.limit+=12;renderCatalog();const first=$$('.product-heading',$('#product-grid'))[before];first?.focus({preventScroll:true});break;}
-    case 'favorite':{const focused=rememberControl();if(state.favorites.has(id))state.favorites.delete(id);else state.favorites.add(id);store('chavan:favorites:v1',[...state.favorites]);renderCategories();if(state.category==='favorites')renderCatalog();else updateFavorites();restoreControl(focused);toast(state.favorites.has(id)?'Блюдо сохранено в избранном':'Блюдо убрано из избранного');break;}
+    case 'favorite':{const focused=rememberControl();if(state.favorites.has(id))state.favorites.delete(id);else state.favorites.add(id);store('chavan:favorites:v1',[...state.favorites]);if(state.category==='favorites'&&!state.search)renderCatalog();else updateFavorites();restoreControl(focused);toast(state.favorites.has(id)?'Блюдо сохранено в избранном':'Блюдо убрано из избранного');break;}
     case 'product':showProduct(id);break;
     case 'add':{const product=byId.get(id);if(product.modifiers?.length)showProduct(id);else {state.cart=addItem(state.cart,id,1,products);persistCart();toast(`${product.name} — в корзине`);}break;}
     case 'line-minus':case 'line-plus':{const delta=action==='line-plus'?1:-1;state.cart=updateLine(state.cart,key,delta,products);persistCart();break;}
@@ -283,11 +308,10 @@ document.addEventListener('click',event=>{
 });
 document.addEventListener('change',event=>{
   if(event.target.matches('input[data-group]')){const {group}=event.target.dataset;state.selections=normalizeSelections(state.product,{...state.selections,[group]:{[event.target.value]:1}});updateProductTotals();}
-  if(event.target.id==='sort'){state.sort=event.target.value;renderCatalog();}
 });
 document.addEventListener('submit',event=>{
   const form=event.target;
-  if(form.id==='search-form'){event.preventDefault();clearTimeout(searchTimer);renderCategories();renderCatalog();scrollMenu();return;}
+  if(form.id==='search-form'){event.preventDefault();clearTimeout(searchTimer);updateCategoryState();renderCatalog();scrollMenu();return;}
   if(form.id==='address-form'){event.preventDefault();if(state.mode==='delivery')state.address=new FormData(form).get('address').trim();renderCart();closeModal();toast(state.mode==='delivery'?'Адрес сохранён для этой вкладки':'Выбран самовывоз');}
   if(form.id==='promo-form'){event.preventDefault();state.promoCode=$('#promo').value.trim().toUpperCase();state.promoError=state.promoCode?'В демоверсии промокоды не активны. Скидки из меню уже учтены.':'Введите промокод';renderCart();$('#promo')?.focus();}
   if(form.id==='checkout-form'){
@@ -298,7 +322,9 @@ document.addEventListener('submit',event=>{
   }
 });
 let searchTimer;
-$('#search').addEventListener('input',event=>{state.search=event.target.value.trim();state.limit=12;clearTimeout(searchTimer);searchTimer=setTimeout(()=>{renderCategories();renderCatalog();},120);});
+$('#search').addEventListener('input',event=>{state.search=event.target.value.trim();clearTimeout(searchTimer);searchTimer=setTimeout(()=>{updateCategoryState();renderCatalog();},120);});
+window.addEventListener('scroll',scheduleCategoryTracking,{passive:true});
+window.addEventListener('resize',scheduleCategoryTracking,{passive:true});
 $('#cart-scrim').addEventListener('click',closeCart);
 modal.addEventListener('click',event=>{if(event.target===modal){const rect=modal.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)closeModal();}});
 modal.addEventListener('cancel',event=>{event.preventDefault();closeModal();});
@@ -310,11 +336,11 @@ document.addEventListener('keydown',event=>{
 matchMedia('(min-width:1280px)').addEventListener('change',event=>{if(event.matches)closeCart();});
 window.addEventListener('storage',event=>{
   if(event.key==='chavan:cart:v1'){
-    const focused=rememberControl();state.cart=normalizeCart(readStorage(event.key,[]),products);renderCart();renderDaily();renderCatalog();restoreControl(focused);
+    const focused=rememberControl();state.cart=normalizeCart(readStorage(event.key,[]),products);renderCart();refreshProductCards();restoreControl(focused);
     if(modal.open&&['checkout','review'].includes(modal.dataset.type)){closeModal();toast('Корзина изменилась в другой вкладке. Проверьте её перед оформлением.');}
   }
   if(event.key==='chavan:favorites:v1'){
-    const focused=rememberControl();const next=readStorage(event.key,[]);state.favorites=new Set(Array.isArray(next)?next.filter(id=>byId.has(id)):[]);renderCategories();renderDaily();renderCatalog();restoreControl(focused);
+    const focused=rememberControl();const next=readStorage(event.key,[]);state.favorites=new Set(Array.isArray(next)?next.filter(id=>byId.has(id)):[]);if(state.category==='favorites'&&!state.search)renderCatalog();else updateFavorites();restoreControl(focused);
   }
 });
 $('#year').textContent=new Date().getFullYear();
